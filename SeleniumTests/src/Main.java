@@ -1,7 +1,12 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -18,15 +23,20 @@ public class Main {
         webDriver = new ChromeDriver();
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         // Press Opt+Enter with your caret at the highlighted text to see how
         // IntelliJ IDEA suggests fixing it.
         Main mObj = new Main();
         mObj.setUp();
 
-        //CheckersPage cpObj = new CheckersPage(mObj.webDriver);
-        //cpObj.navigate();
+        //Exercise1
+        CheckersPage checkersPage = new CheckersPage(mObj.webDriver);
+        checkersPage.navigate();
+        checkersPage.makeMoves(5);
+        System.out.println("End of exercise1");
+        Thread.sleep(5000);
 
+        //Exercise 2
         DeckOfCards deckOfCards = new DeckOfCards(mObj.webDriver);
         deckOfCards.navigate();
 
