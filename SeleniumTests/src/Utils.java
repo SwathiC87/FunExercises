@@ -37,4 +37,17 @@ public class Utils {
 
 
     }
+
+    public static int getCardValue(String card) {
+        if(card.equals( "JACK") || card.equals("KING") ||
+                card.equals( "QUEEN")){
+            return 10;
+        }
+        else if(card.equals( "ACE")) {
+            return 11;
+        }
+        else {
+            return Integer.parseInt(card);
+        }
+    }
 }
